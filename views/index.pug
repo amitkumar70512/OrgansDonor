@@ -1,0 +1,198 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name='description', content='')
+  meta(name='author', content='amit kumar')
+  title OrgansDonor
+  // fontawesome
+  script(src='https://kit.fontawesome.com/b51d5e4e6a.js', crossorigin='anonymous')
+  // Favicon
+  link(rel='icon', type='image/x-icon', href='icons/sprites/logo.png')
+  // Bootstrap icons
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css', rel='stylesheet')
+  // Core theme CSS (includes Bootstrap)
+  link(href='css/index.css', rel='stylesheet')
+  script(src='https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js')
+// Responsive navbar
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .container.px-5
+    a.navbar-brand(href='#!')
+      i.fa-solid.fa-heart-pulse
+      |  OrgansDonor
+    lottie-player(src='https://assets5.lottiefiles.com/packages/lf20_a1lpoeuv.json', mode='bounce', background='transparent', speed='3', style='color:white; width: 50px; height: 50px;', hover='', loop='', autoplay='')
+    button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+        li.nav-item
+          a.nav-link.active(aria-current='page', href='#!') Home
+        li.nav-item
+          a.nav-link(href='#about') About
+        li.nav-item
+          a.nav-link(href='#contact') Contact
+        li.nav-item
+          a.nav-link(href='#services') Services
+// Header
+header.bg-dark.py-5
+  .container.px-5
+    .row.gx-5.justify-content-center
+      .col-lg-6
+        .text-center.my-5
+          h1.display-5.fw-bolder.text-white.mb-2 Help someone live after your death
+          p.lead.text-white-50.mb-4
+            | By just donating an organ, you can continue to live forever. Donate your organs to give someone another chance to live
+          .d-grid.gap-3.d-sm-flex.justify-content-sm-center
+            a.btn.btn-primary.btn-lg.px-4.me-sm-3(href='#features') Donate now
+            a.btn.btn-outline-light.btn-lg.px-4(href='#!') Learn More
+// Features section
+section#features.py-5.border-bottom
+  .container.px-5.my-5
+    .row.gx-5
+      .col-lg-4.mb-5.mb-lg-0
+        .feature.bg-primary.bg-gradient.text-white.rounded-3.mb-3
+          i.bi.bi-collection
+        h2.h4.fw-bolder Donor
+        p
+          | Paragraph of text beneath the heading to explain the heading. We&apos;ll add onto it with another sentence and probably just keep going until we run out of words.
+        a.text-decoration-none(href='donate')
+          | Donate organs now
+          i.bi.bi-arrow-right
+      .col-lg-4.mb-5.mb-lg-0
+        .feature.bg-primary.bg-gradient.text-white.rounded-3.mb-3
+          i.bi.bi-building
+        h2.h4.fw-bolder Recipient
+        p
+          | Paragraph of text beneath the heading to explain the heading. We&apos;ll add onto it with another sentence and probably just keep going until we run out of words.
+        a.text-decoration-none(href='receive')
+          | Check for Organs
+          i.bi.bi-arrow-right
+      .col-lg-4
+        .feature.bg-primary.bg-gradient.text-white.rounded-3.mb-3
+          i.fa-solid.fa-user-doctor
+        h2.h4.fw-bolder Admin
+        p
+          | Paragraph of text beneath the heading to explain the heading. We&apos;ll add onto it with another sentence and probably just keep going until we run out of words.
+        a.text-decoration-none(href='admin')
+          | Call to action
+          i.bi.bi-arrow-right
+// Testimonials section
+section.py-5.border-bottom
+  .container.px-5.my-5.px-5
+    .text-center.mb-5
+      h2.fw-bolder Customer testimonials
+      p.lead.mb-0 Our customers love working with us
+    .row.gx-5.justify-content-center
+      .col-lg-6
+        // Testimonial 1
+        .card.mb-4
+          .card-body.p-4
+            .d-flex
+              .flex-shrink-0
+                i.bi.bi-chat-right-quote-fill.text-primary.fs-1
+              .ms-4
+                p.mb-1
+                  | Thank you for putting together such a great product. We loved working with you and the whole team, and we will be recommending you to others!
+                .small.text-muted - Client Name, Location
+        // Testimonial 2
+        .card
+          .card-body.p-4
+            .d-flex
+              .flex-shrink-0
+                i.bi.bi-chat-right-quote-fill.text-primary.fs-1
+              .ms-4
+                p.mb-1
+                  | The whole team was a huge help with putting things together for our company and brand. We will be hiring them again in the near future for additional work!
+                .small.text-muted - Client Name, Location
+// Contact section
+section#contact.bg-light.py-5
+  .container.px-5.my-5.px-5
+    .text-center.mb-5
+      .feature.bg-primary.bg-gradient.text-white.rounded-3.mb-3
+        i.bi.bi-envelope
+      h2.fw-bolder Get in touch
+      p.lead.mb-0 We&apos;d love to hear from you
+    .row.gx-5.justify-content-center
+      .col-lg-6
+        form(methhod='post')
+          // Name input
+          .form-floating.mb-3
+            input#name.form-control(type='text', placeholder='Enter your name...', data-sb-validations='required')
+            label(for='name') Full name
+            .invalid-feedback(data-sb-feedback='name:required') A name is required.
+          // Email address input
+          .form-floating.mb-3
+            input#email.form-control(type='email', placeholder='name@example.com', data-sb-validations='required,email')
+            label(for='email') Email address
+            .invalid-feedback(data-sb-feedback='email:required') An email is required.
+            .invalid-feedback(data-sb-feedback='email:email') Email is not valid.
+          // Phone number input
+          .form-floating.mb-3
+            input#phone.form-control(type='tel', placeholder='(123) 456-7890', data-sb-validations='required')
+            label(for='phone') Phone number
+            .invalid-feedback(data-sb-feedback='phone:required') A phone number is required.
+          // Message input
+          .form-floating.mb-3
+            textarea#message.form-control(type='text', placeholder='Enter your message here...', style='height: 10rem', data-sb-validations='required')
+            label(for='message') Message
+            .invalid-feedback(data-sb-feedback='message:required') A message is required.
+          // Submit success message
+          // 
+          // This is what your users will see when the form
+          // has successfully submitted
+          #submitSuccessMessage.d-none
+            .text-center.mb-3
+              .fw-bolder Form submission successful!
+          // Submit error message
+          // 
+          // This is what your users will see when there is
+          // an error submitting the form
+          #submitErrorMessage.d-none
+            .text-center.text-danger.mb-3 Error sending message!
+          // Submit Button
+          .d-grid
+            button#submitButton.btn.btn-primary.btn-lg.disabled(type='submit') Submit
+// services section
+section.bg-light.py-5.border-bottom
+  .container.px-5.my-5
+    .text-center.mb-5(style='color:#30c986')
+      h2.fw-bolder Our Services
+      p.lead.mb-0 With our no hassle plans
+    .row.gx-5.justify-content-center
+      // carousal
+      #carouselExampleCaptions.carousel.slide(data-bs-ride='carousel')
+        .carousel-indicators
+          button.active(type='button', data-bs-target='#carouselExampleCaptions', data-bs-slide-to='0', aria-current='true', aria-label='Slide 1')
+          button(type='button', data-bs-target='#carouselExampleCaptions', data-bs-slide-to='1', aria-label='Slide 2')
+          button(type='button', data-bs-target='#carouselExampleCaptions', data-bs-slide-to='2', aria-label='Slide 3')
+        .carousel-inner
+          .carousel-item.active
+            img.d-block.w-100(src='/img/first.jpg', alt='...')
+            .carousel-caption.d-none.d-md-block(style='color: #30c986;')
+              h5 First slide label
+              p Some representative placeholder content for the first slide.
+          .carousel-item
+            img.d-block.w-100(src='/img/second.jpg', alt='...')
+            .carousel-caption.d-none.d-md-block(style='color: #30c986;')
+              h5 Second slide label
+              p Some representative placeholder content for the second slide.
+          .carousel-item
+            img.d-block.w-100(src='/img/third.jpg', alt='...')
+            .carousel-caption.d-none.d-md-block(style='color: #30c986;')
+              h5 Third slide label
+              p Some representative placeholder content for the third slide.
+        button.carousel-control-prev(type='button', data-bs-target='#carouselExampleCaptions', data-bs-slide='prev')
+          span.carousel-control-prev-icon(aria-hidden='true')
+          span.visually-hidden Previous
+        button.carousel-control-next(type='button', data-bs-target='#carouselExampleCaptions', data-bs-slide='next')
+          span.carousel-control-next-icon(aria-hidden='true')
+          span.visually-hidden Next
+// Footer
+footer.py-5.bg-dark
+  .container.px-5
+    p.m-0.text-center.text-white Copyright &copy; OrgansDonor 2022
+// Bootstrap core JS
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')
+// Core theme JS
+script(src='js/scripts.js')
+script(src='https://cdn.startbootstrap.com/sb-forms-latest.js')

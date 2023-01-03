@@ -1,0 +1,80 @@
+head
+  title Add User
+  meta(charset='utf-8')
+  link(href='/icons/sprites/logo.png' rel='icon')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/icons/css/all.css')
+  link(rel='stylesheet' href='/css/styles.css')
+  link(rel='stylesheet' href='/css/index.css')
+  // fontawesome
+  script(src='https://kit.fontawesome.com/b51d5e4e6a.js', crossorigin='anonymous')
+  // Favicon
+  link(rel='icon', type='image/x-icon', href='icons/sprites/logo.png')
+  // Bootstrap icons
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css', rel='stylesheet')
+  // Core theme CSS (includes Bootstrap)
+  link(href='css/index.css', rel='stylesheet')
+  script(src='https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js')
+ 
+// Responsive navbar
+nav.navbar.navbar-expand-lg.navbar-dark.bg-header
+  .container.px-5
+    a.navbar-brand(href='admin')
+      i.fa-solid.fa-heart-pulse
+      |  Admin 
+    lottie-player(src='https://assets5.lottiefiles.com/packages/lf20_a1lpoeuv.json', mode='bounce', background='transparent', speed='3', style='color:white; width: 50px; height: 50px;', hover='', loop='', autoplay='')
+    button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+        li.nav-item
+          a.nav-link.active(aria-current='page', href='/index') Home
+        li.nav-item
+          a.nav-link(href='/admin/addAdmin') Add Admin
+        li.nav-item
+          a.nav-link(href='/admin/logout') Logout
+        
+        
+nav(aria-label='breadcrumb')
+  ol.breadcrumb
+    li.breadcrumb-item
+      a(href='/admin') Admin
+    li.breadcrumb-item.active(aria-current='page') Add User
+
+.Container 
+    .row 
+     .col-md-8(style='position: relative; top: 10px; margin: auto; z-index: 100;')
+        form.register(action="/admin/addUser" method="POST" name="form")
+            h5(style='text-align: center; margin-top: 10px;') Add User
+            .form-group
+                p Full Name
+                input.form-control(type="text" name="fullname" required="required")
+            .form-group
+                p Email Address
+                input.form-control(type="email" name="email" required="required")
+            .form-group
+                p Country/Address
+                input.form-control(type="text" name="address" required="required")
+            .form-group
+                p Phone Number
+                input.form-control(type="text" name="phone" required="required")
+            .form-group
+                select.form-control(name="status" required)
+                    option(value="") Account Type:
+                    option(value="Buyer")= "Buyer"
+                    option(value="Seller")= "Seller"
+            .form-group
+                p Password
+                input.form-control(type="password" name="password" required="required")
+            .form-group
+                p Re Enter Password
+                input.form-control(type="password" name="password2" required="required")
+            .form-group
+                input.btn.btn-primary.form-control(type="submit" value="Add User")
+
+
+// Footer
+footer.py-3.bg-header
+  .container.px-5
+    p.m-0.text-center.text-white Copyright &copy; OrgansDonor 2022
