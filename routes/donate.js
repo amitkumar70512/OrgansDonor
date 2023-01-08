@@ -40,42 +40,40 @@ router.get('/donate', checkAuthenticated, (req, res) => {
     }
   })();
 });
-router.get('/donate/heart',(req,res)=>{
-  res.redirect('/profile');
-})
-router.post('/donate/heart', checkAuthenticated, (req, res) => {
-  (async () => {
-    try {
-      let loggedInUser = await req.user;
-      const formidable = require('formidable');
-      const form = formidable({ multiples: true });
-      form.parse(req, (err, fields, files) => {
 
-        (async () => {
-          await Heart.create({
-            organ_id: uuid(),
-            patient_id: loggedInUser._id,
-            patient_name: loggedInUser.name,
-            age: fields.age,
-            height: fields.height,
-            weight: fields.weight,
-            gender: fields.gender,
-            BP: fields.BP,
-            Blood_type: fields.Blood_type,
-            heart_disease: fields.heart_disease,
-            obesity: fields.obesity,
-            diabetes: fields.diabetes,
-            heart_abnormalities: fields.heart_abnormalities,
-            inotropes: fields.inotropes
-          });
-          res.redirect('/profile');
-        })();
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  })();
-});
+// router.post('/donate/heart', checkAuthenticated, (req, res) => {
+//   (async () => {
+//     try {
+//       let loggedInUser = await req.user;
+//       const formidable = require('formidable');
+//       const form = formidable({ multiples: true });
+//       form.parse(req, (err, fields, files) => {
+
+//         (async () => {
+//           await Heart.create({
+//             organ_id: uuid(),
+//             patient_id: loggedInUser._id,
+//             patient_name: loggedInUser.name,
+//             age: fields.age,
+//             height: fields.height,
+//             weight: fields.weight,
+//             gender: fields.gender,
+//             BP: fields.BP,
+//             Blood_type: fields.Blood_type,
+//             heart_disease: fields.heart_disease,
+//             obesity: fields.obesity,
+//             diabetes: fields.diabetes,
+//             heart_abnormalities: fields.heart_abnormalities,
+//             inotropes: fields.inotropes
+//           });
+//           res.redirect('/profile');
+//         })();
+//       });
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   })();
+// });
 
 
 router.get('/profile/showbid/:id', checkAuthenticated, (req, res) => {

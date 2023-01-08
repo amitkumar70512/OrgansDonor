@@ -7,8 +7,8 @@ const userSchema = new Schema({
     password: String,
     address: String,
     phone: String,
-    status: { type: Boolean, default: true },
-    isApproved: Boolean,
+    status: String,
+    isApproved: { type: Boolean, default: true },
 },
 { collection: 'users' });
 
