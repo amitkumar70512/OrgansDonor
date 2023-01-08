@@ -11,26 +11,26 @@ let Bids = require(path.join(__dirname, '../models/index.js')).bids;
 //nodemailer
 const nodemailer = require('nodemailer');
 
-router.get('/', checkAuthenticated, (req, res) => {
-  (async () => {
-    try {
-      let loggedInUser = await req.user;
-      let items = await Items.find({ status: 'true' }).sort({
-        _id: -1,
-      });
-      res.render('profile', { items, user: req.user, loggedInUser });
-    } catch (err) {
-      console.log(err);
-    }
-  })();
-});
+// router.get('/', checkAuthenticated, (req, res) => {
+//   (async () => {
+//     try {
+//       let loggedInUser = await req.user;
+//       let items = await Items.find({ status: 'true' }).sort({
+//         _id: -1,
+//       });
+//       res.render('donate', { items, user: req.user, loggedInUser });
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   })();
+// });
 
-router.get('/profile/additem', checkAuthenticated, (req, res) => {
+router.get('/donate', checkAuthenticated, (req, res) => {
   (async () => {
     try {
       let categories = await Categories.find({});
       let additem = true;
-      res.render('profile', {
+      res.render('donate', {
         additem,
         categories,
         loggedInUser: await req.user,
@@ -40,23 +40,33 @@ router.get('/profile/additem', checkAuthenticated, (req, res) => {
     }
   })();
 });
-
-router.post('/profile/additem', checkAuthenticated, (req, res) => {
+router.get('/donate/heart',(req,res)=>{
+  res.redirect('/profile');
+})
+router.post('/donate/heart', checkAuthenticated, (req, res) => {
   (async () => {
     try {
       let loggedInUser = await req.user;
       const formidable = require('formidable');
       const form = formidable({ multiples: true });
-      form.parse(req, (err, fields) => {
-       
+      form.parse(req, (err, fields, files) => {
+
         (async () => {
-          
-          await Items.create({
-            user_id: loggedInUser._id,
-            name: loggedInUser.name,
-            detail: fields.detail,
+          await Heart.create({
+            organ_id: uuid(),
+            patient_id: loggedInUser._id,
+            patient_name: loggedInUser.name,
             age: fields.age,
-            category_id: fields.category,
+            height: fields.height,
+            weight: fields.weight,
+            gender: fields.gender,
+            BP: fields.BP,
+            Blood_type: fields.Blood_type,
+            heart_disease: fields.heart_disease,
+            obesity: fields.obesity,
+            diabetes: fields.diabetes,
+            heart_abnormalities: fields.heart_abnormalities,
+            inotropes: fields.inotropes
           });
           res.redirect('/profile');
         })();
@@ -66,6 +76,7 @@ router.post('/profile/additem', checkAuthenticated, (req, res) => {
     }
   })();
 });
+
 
 router.get('/profile/showbid/:id', checkAuthenticated, (req, res) => {
   (async () => {

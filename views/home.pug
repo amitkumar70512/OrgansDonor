@@ -11,7 +11,7 @@ body
                 .col-12
                     #app
                         template
-                            .slider-container
+                            //- .slider-container
                                 span.leftArrow(v-show='leftArrow' @click='previous()') &lt;
                                 .slider
                                     .images(@mousedown='mouseDown($event)' @mousemove='mouseMove($event)' @mouseup='mouseUp($event)' @touchstart="mouseDown($event, 'touched')" @touchmove="mouseMove($event, 'touched')" @touchend='mouseUp($event)')
@@ -75,7 +75,7 @@ body
                 .col-md-6
                     if !loggedInUser
                         .signin(style='width: 80%; margin: auto; margin-top: 30px')
-                            h5(style='text-align: center;') Sign in to add a bid
+                            h5(style='text-align: center;') Sign in to add a organ
                             a.form-control.btn(href='/login' style='border: 1px solid silver; margin-bottom: 5px' ) Sign in
                             a.form-control.btn(href='/register' style='border: 1px solid silver;') + Sign up
                     else
@@ -93,7 +93,7 @@ body
                     source(src="/audio/bidplaced.mp3" type="audio/mp3")
             
         else
-            h4 THERE IS NO ITEM FOR BID RIGHT NOW.
+            h4 THERE IS NO ORGAN FOR DONATION RIGHT NOW.
 
     if !noItem
         script(src='/scripts/vueapp.js')

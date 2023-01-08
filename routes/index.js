@@ -33,12 +33,16 @@ let loginPage = require('./login.js');
 let profilePage = require('./profile.js');
 let adminPage = require('./admin.js');
 let contact = require('./contact.js');
+let donate = require('./donate.js');
+let receive = require('./receive.js');
 
 router.use(homePage);
 router.use(loginPage);
 router.use(profilePage);
 router.use(adminPage);
 router.use(contact);
+router.use(donate);
+router.use(receive);
 
 router.get('/index',(req,res)=>{
   res.render('index');

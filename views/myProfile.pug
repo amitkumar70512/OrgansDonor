@@ -34,14 +34,14 @@ section.main-content
               |  #{loggedInUser.address}
             <br>
             p.mb-2
-                if loggedInUser.status == 'Seller'
+                if loggedInUser.status == 'Donor'
                     .float-right
-                        a.btn.btn-outline-primary.btn-sm(href='/profile/myProduct') My Product
-                    a.btn.btn-outline-primary.btn-sm(href='/profile/additem') Add Product
-                if loggedInUser.status == 'Buyer'
+                        a.btn.btn-outline-primary.btn-sm(href='/profile/myProduct') My Organs
+                    a.btn.btn-outline-primary.btn-sm(href='/profile/additem') Donate
+                if loggedInUser.status == 'Recepient'
                     .float-right
-                        a.btn.btn-outline-primary.btn-sm(href='/profile') Buy Product
-                    a.btn.btn-outline-success.btn-sm(href=`/requestCredit/${loggedInUser._id}`) Request Product
+                        a.btn.btn-outline-primary.btn-sm(href='/profile') Organs transplanted
+                    a.btn.btn-outline-success.btn-sm(href=`/requestCredit/${loggedInUser._id}`) NEED ORGAN!!
 
 
 
