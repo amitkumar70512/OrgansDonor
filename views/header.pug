@@ -16,20 +16,13 @@ head
   script(src='https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js')
   
 // Responsive navbar
-nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+nav.navbar.navbar-expand-lg.navbar-dark(style='background-color:#30C986;' )
   .container.px-5
-    a.navbar-brand(href='#!')
+    a.navbar-brand(href='/index')
       i.fa-solid.fa-heart-pulse
       |  OrgansDonor
     lottie-player(src='https://assets5.lottiefiles.com/packages/lf20_a1lpoeuv.json', mode='bounce', background='transparent', speed='3', style='color:white; width: 50px; height: 50px;', hover='', loop='', autoplay='')
     button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
       span.navbar-toggler-icon
-    #navbarSupportedContent.collapse.navbar-collapse
-      ul.navbar-nav.ms-auto.mb-2.mb-lg-0
-        li.nav-item
-          a.nav-link.active(aria-current='page', href='index') Home
-        li.nav-item
-          a.nav-link(href='about') About
-        li.nav-item
-          a.nav-link(href='contact') Contact
+    
         

@@ -35,13 +35,19 @@ html
             
             li.nav-item
               a.nav-link(href='/logout') Logout
-    
-    .Container
+    .Container 
+      .btn-group.btn-group-justified
+        a.btn.btn-primary(href='donate/heart') Heart
+        a.btn.btn-primary(href='donate/liver') Liver
+        a.btn.btn-primary(href='donate/lung') Lung
+        a.btn.btn-primary(href='donate/kidney') Kidney
+
+
+   
       .row
-        .col-md-8(style='position: relative; top: 10px; margin: auto; z-index: 100;')
-          form.register(action='/profile/addorgan', method='post',enctype="multipart/form-data", name='form')
-            h5(style='text-align: center; margin-top: 10px;') Donor Information 
-            h6(style='text-align: center; margin-top: 10px; color:#30C986 border-bottom:2px solid #30c986 ' )  #{loggedInUser.fullname} 
+        .col-md-12(style='position: relative; top: 10px; margin: auto; z-index: 100;')
+            h3(style='text-align: center; margin-top: 10px; color:#30C986 border-bottom:2px solid #30c986 ' )  #{loggedInUser.fullname} 
+            
             .form-group
               p Age
               input.form-control(type='number', name='age', required='required')
@@ -126,27 +132,27 @@ html
             br
             //- #liver
             //-   h1 LIVER INFO
-            //-   .form-group
-            //-     select.form-control(name='Blood_sugar', required='required')
-            //-       option(value='') Blood sugar:
-            //-       option(value='High') high
-            //-       option(value='Low') Low
-            //-       option(value='normal') normal
-            //-   .form-group
-            //-     p Hepatitis
-            //-     input.form-control(type='boolean', name='hepatitis', required='required')
-            //-   .form-group
-            //-     p Cancers
-            //-     input.form-control(type='boolean', name='cancers', required='required')
-            //-   .form-group
-            //-     p HIV
-            //-     input.form-control(type='boolean', name='hiv', required='required')
-            //-   .form-group
-            //-     p Creatinine
-            //-     input.form-control(type='number', name='creatinine', required='required')
-            //-   .form-group
-            //-     p GFRs
-            //-     input.form-control(type='number', name='gfr', required='required')
+              .form-group
+                select.form-control(name='Blood_sugar', required='required')
+                  option(value='') Blood sugar:
+                  option(value='High') high
+                  option(value='Low') Low
+                  option(value='normal') normal
+              .form-group
+                p Hepatitis
+                input.form-control(type='boolean', name='hepatitis', required='required')
+              .form-group
+                p Cancers
+                input.form-control(type='boolean', name='cancers', required='required')
+              .form-group
+                p HIV
+                input.form-control(type='boolean', name='hiv', required='required')
+              .form-group
+                p Creatinine
+                input.form-control(type='number', name='creatinine', required='required')
+              .form-group
+                p GFRs
+                input.form-control(type='number', name='gfr', required='required')
             .form-group
               input.btn.btn-primary.form-control(type='submit', value='Submit')
     // Footer

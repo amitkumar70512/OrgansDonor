@@ -11,19 +11,19 @@ let Bids = require(path.join(__dirname, '../models/index.js')).bids;
 //nodemailer
 const nodemailer = require('nodemailer');
 
-// router.get('/', checkAuthenticated, (req, res) => {
-//   (async () => {
-//     try {
-//       let loggedInUser = await req.user;
-//       let items = await Items.find({ status: 'true' }).sort({
-//         _id: -1,
-//       });
-//       res.render('donate', { items, user: req.user, loggedInUser });
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   })();
-// });
+router.get('/', checkAuthenticated, (req, res) => {
+  (async () => {
+    try {
+      let loggedInUser = await req.user;
+      let items = await Items.find({ status: 'true' }).sort({
+        _id: -1,
+      });
+      res.render('donate', { items, user: req.user, loggedInUser });
+    } catch (err) {
+      console.log(err);
+    }
+  })();
+});
 
 router.get('/donate', checkAuthenticated, (req, res) => {
   (async () => {
@@ -31,8 +31,6 @@ router.get('/donate', checkAuthenticated, (req, res) => {
       let categories = await Categories.find({});
       let additem = true;
       res.render('donate', {
-        additem,
-        categories,
         loggedInUser: await req.user,
       });
     } catch (err) {
@@ -40,6 +38,22 @@ router.get('/donate', checkAuthenticated, (req, res) => {
     }
   })();
 });
+
+router.get('/donate/:id', checkAuthenticated, (req, res) => {
+  (async () => {
+    try {
+      let additem = req.params.id;
+      res.render('profile', {
+        additem,
+        loggedInUser: await req.user,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  })();
+});
+
+
 
 // router.post('/donate/heart', checkAuthenticated, (req, res) => {
 //   (async () => {

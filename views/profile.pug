@@ -1,7 +1,7 @@
 include ./header
 include ./headerSeller
 
-    if !additem && !showBid
+    if !additem && !showBid && !heart && !lung 
         .row
             for item in items
                 .col-md-4
@@ -39,25 +39,175 @@ include ./headerSeller
                         p= 'Phone number: '
                         p= user[0].phone
 
-    else if additem
+    else if additem == 'liver'
         .row
-            .col-md-8(style='margin: auto')
+            .col-md-4(style='margin: auto; background-color:#f3f3f3c7; box-shadow: 0px 0px 5px 2px #30c98638; ')
+                p Liver INFO
+                h6(style='text-align: center; margin-top: 10px; color:#30C986; border-bottom:2px solid #30c986;' )  #{loggedInUser.fullname} 
+                
+                form(method='post' action='/profile/additem' enctype="multipart/form-data" style='background-color: white; padding: 10px;')
+                .form-group
+                p Age
+                input.form-control(type='number', name='age', required='required')
+                .form-group
+                p Height(cm)
+                input.form-control(type='number', name='height', required='required')
+                .form-group
+                p Weight(kg)
+                input.form-control(type='number', name='weight', required='required')
+                .form-group
+                p Gender
+                select.form-control(name='gender', required='required')
+                    option(value='') Gender:
+                    option(value='Female') Female
+                    option(value='Male') Male
+                .form-group
+                p Blood type
+                input.form-control(type='text', name='bt', required='required')
+                .form-group
+                p BP level
+                select.form-control(name='BP', required='required')
+                    option(value='High') high
+                    option(value='Low') low
+                    option(value='normal') normal
+                .form-group
+                p Deceased
+                select.form-control(name='deceased', required='required')
+                    option(value='') Deceased:
+                    option(value='Yes') Yes
+                    option(value='No') No
+                .form-group
+                select.form-control(name='Blood_sugar', required='required')
+                    option(value='') Blood sugar:
+                    option(value='High') high
+                    option(value='Low') Low
+                    option(value='normal') normal
+                .form-group
+                    p Hepatitis
+                    input.form-control(type='boolean', name='hepatitis', required='required')
+                .form-group
+                    p Cancers
+                    input.form-control(type='boolean', name='cancers', required='required')
+                .form-group
+                    p HIV
+                    input.form-control(type='boolean', name='hiv', required='required')
+                .form-group
+                    p Creatinine
+                    input.form-control(type='number', name='creatinine', required='required')
+                .form-group
+                    p GFRs
+                    input.form-control(type='number', name='gfr', required='required')
+    else if additem == 'heart'
+        .row
+            .col-md-4(style='margin: auto; background-color:#f3f3f3c7; box-shadow: 0px 0px 5px 2px #30c98638; ')
+                p Heart INFO
+                h4(style='text-align: center; margin-top: 10px; color:#30C986; border-bottom:2px solid #30c986 ' )  #{loggedInUser.fullname} 
                 form(method='post' action='/profile/additem' enctype="multipart/form-data" style='background-color: white; padding: 10px;')
                     .form-group
-                        p Organ name
-                        input.form-control(type='text' name='name' required)
+                    p Age
+                    input.form-control(type='number', name='age', required='required')
                     .form-group
-                        p Details
-                        textarea.form-control(type='text' name='detail' required)
+                    p Height(cm)
+                    input.form-control(type='number', name='height', required='required')
                     .form-group
-                        p age
-                        input.form-control(type='number' name='age' required)
+                    p Weight(kg)
+                    input.form-control(type='number', name='weight', required='required')
                     .form-group
-                        select.form-control(name='category' required)
-                            option(value='') -- Select Category --
-                            for cat in categories
-                                option(value=cat._id)= cat.name
-                    
+                    select.form-control(name='gender', required='required')
+                        option(value='') Gender:
+                        option(value='Female') Female
+                        option(value='Male') Male
+                    .form-group
+                    p Blood type
+                    input.form-control(type='text', name='bt', required='required')
+                    .form-group
+                    p BP level
+                    select.form-control(name='BP', required='required')
+                        option(value='High') high
+                        option(value='Low') low
+                        option(value='normal') normal
+                    .form-group
+                    p Deceased
+                    select.form-control(name='deceased', required='required')
+                        option(value='') Deceased:
+                        option(value='Yes') Yes
+                        option(value='No') No
+
+                    .form-group
+                        p History of heart disease
+                        input.form-control(type='boolean', name='heart_disease', required='required')
+                    .form-group
+                        p Obesity
+                        input.form-control(type='boolean', name='obesity', required='required')
+                    .form-group
+                        p Diabetes
+                        input.form-control(type='boolean', name='diabetes', required='required')
+                    .form-group
+                        p Heart abnormalities
+                        input.form-control(type='boolean', name='abnormal', required='required')
+                    .form-group
+                        select.form-control(name='inotropes', required='required')
+                        option(value='') Inotropes
+                        option(value='High') positive
+                        option(value='Low') negative
+                        option(value='normal') na
+                    .form-group
+                        input.btn.btn-primary.form-control(type='submit' value='+ Add')
+                    .messages
+    else if additem = 'lung'
+        .row
+            .col-md-4(style='margin: auto; background-color:#f3f3f3c7; box-shadow: 0px 0px 5px 2px #30c98638;')
+                form(method='post' action='/profile/additem' enctype="multipart/form-data" style='background-color: white; padding: 10px;')
+                    p LUNG INFO
+                    h3(style='text-align: center; margin-top: 10px; color:#30C986; border-bottom:2px solid #30c986; ' )  #{loggedInUser.fullname} 
+                    .form-group
+                    p Age
+                    input.form-control(type='number', name='age', required='required')
+                    .form-group
+                    p Height(cm)
+                    input.form-control(type='number', name='height', required='required')
+                    .form-group
+                    p Weight(kg)
+                    input.form-control(type='number', name='weight', required='required')
+                    .form-group
+                    select.form-control(name='gender', required='required')
+                        option(value='') Gender:
+                        option(value='Female') Female
+                        option(value='Male') Male
+                    .form-group
+                    p Blood type
+                    input.form-control(type='text', name='bt', required='required')
+                    .form-group
+                    p BP level
+                    select.form-control(name='BP', required='required')
+                        option(value='High') high
+                        option(value='Low') low
+                        option(value='normal') normal
+                    .form-group
+                    p Deceased
+                    select.form-control(name='deceased', required='required')
+                        option(value='') Deceased:
+                        option(value='Yes') Yes
+                        option(value='No') No        
+                    .form-group
+                        p No. of lungs
+                        input.form-control(type='number', min='1', max='2', name='nol', required='required')
+                    .form-group
+                        p Smoking years
+                        input.form-control(type='number', name='smy', required='required')
+                    .form-group
+                        p History of pulminory disease
+                        input.form-control(type='boolean', name='pd', required='required')
+                    .form-group
+                        p Pulmonary edema
+                        input.form-control(type='boolean', name='edema', required='required')
+                    .form-group
+                        p Sepsis
+                        input.form-control(type='boolean', name='sepsis', required='required')
+                    .form-group
+                        p Lung trauma
+                        input.form-control(type='boolean', name='lung_trauma', required='required')
+
                     .form-group
                         input.btn.btn-primary.form-control(type='submit' value='+ Add')
                     .messages
