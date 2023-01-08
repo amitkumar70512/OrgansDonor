@@ -97,7 +97,10 @@ async function pickItem(){
 
 pickItem();
 
-router.get('/profile', (req, res)=>{
+
+
+//// changed
+router.get('/profil', (req, res)=>{
     (async ()=>{
         try {
            

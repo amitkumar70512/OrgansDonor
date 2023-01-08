@@ -6,7 +6,6 @@ const ItemSchema = new Schema(
     user_id: String, // holds patient id
     name: String, // holds patient name
     category_id: String, // which organ
-    detail: String,
     age: { type: Number, default: 0 },
     height: { type: Number, default: 0 },
     weight: { type: Number, default: 0 },

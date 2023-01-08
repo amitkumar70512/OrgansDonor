@@ -13,23 +13,23 @@ head
     thead.table-dark
       tr
         th Organ
-        th Details
-        th Price 
+        th Deceased
+        th Blood Type
         th isApproved
         th isSold
     tbody
     each product in items
         tr
-            td #{product.name}
-            td #{product.detail}
-            td #{product.price}
+            td #{product.category_id}
+            td #{product.deceased}
+            td #{product.blood_type}
             td
                 if product.status == true
                     button.btn.btn-success.btn-sm Approved
                 else
-                    button.btn.btn-danger.btn-sm Waiting for Approve
+                    button.btn.btn-danger.btn-sm Waiting for Approval
             td 
                 if product.sold == true
                     a.btn.btn-success(href=`/profile/showbid/${product._id}`) Sold
                 else
-                    a.btn.btn-danger(href=`/requestRebid/${product._id}`) Request For Rebid
+                    a.btn.btn-danger(href=`/requestRebid/${product._id}`) Not Sold

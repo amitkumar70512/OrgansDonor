@@ -18,14 +18,29 @@ router.get('/', checkAuthenticated, (req, res) => {
       let items = await Items.find({ }).sort({
         _id: -1,
       });
-      
-      res.render('profile', { items, user: req.user, loggedInUser });
+      let guest = false;
+      res.render('profile', { items,guest, user: req.user, loggedInUser });
     } catch (err) {
       console.log(err);
     }
   })();
 });
 
+router.get('/profile',(req,res)=>{
+  (async () => {
+    try {
+      let loggedInUser = await req.user;
+      let items = await Items.find({ }).sort({
+        _id: -1,
+      });
+      let guest = true;
+      console.log(loggedInUser);
+      res.render('profile', { items,guest, user: req.user, loggedInUser:'' });
+    } catch (err) {
+      console.log(err);
+    }
+  })();
+})
 router.get('/profile/additem', checkAuthenticated, (req, res) => {
   (async () => {
     try {
@@ -33,6 +48,7 @@ router.get('/profile/additem', checkAuthenticated, (req, res) => {
       let additem = true;
       res.render('profile', {
         additem,
+        guest,
         categories,
         loggedInUser: await req.user,
       });
@@ -42,7 +58,7 @@ router.get('/profile/additem', checkAuthenticated, (req, res) => {
   })();
 });
 
-router.post('/profile/additem', checkAuthenticated, (req, res) => {
+router.post('/profile/additem/:id', checkAuthenticated, (req, res) => {
   (async () => {
     try {
       let loggedInUser = await req.user;
@@ -51,14 +67,60 @@ router.post('/profile/additem', checkAuthenticated, (req, res) => {
       form.parse(req, (err, fields) => {
        
         (async () => {
-          
-          await Items.create({
-            user_id: loggedInUser._id,
-            name: loggedInUser.name,
-            detail: fields.detail,
-            age: fields.age,
-            category_id: fields.category,
-          });
+          if(req.params.id == 'heart')
+            await Items.create({
+              user_id: loggedInUser._id,
+              name: loggedInUser.name,
+              category_id: req.params.id,
+              age: fields.age,
+              height: fields.height,
+              weight: fields.weight,
+              gender: fields.gender,
+              bp: fields.bp,
+              blood_type: fields.blood_type,
+              deceased: fields.deceased,
+              heart_disease: fields.heart_disease,
+              obesity: fields.obesity,
+              diabetes: fields.diabetes,
+              inotropes: fields.inotropes
+            });
+            else if(req.params.id == 'lung')
+            await Items.create({
+              user_id: loggedInUser._id,
+              name: loggedInUser.name,
+              category_id: req.params.id,
+              age: fields.age,
+              height: fields.height,
+              weight: fields.weight,
+              gender: fields.gender,
+              bp: fields.bp,
+              blood_type: fields.blood_type,
+              deceased: fields.deceased,
+              lungs_count: fields.lungs_count,
+              smoking_years: fields.smoking_years,
+              is_pulminory: fields.is_pulminory,
+              sepsis: fields.sepsis,
+              lung_trauma: fields.lung_trauma
+            });
+            else if(req.params.id == 'liver')
+            await Items.create({
+              user_id: loggedInUser._id,
+              name: loggedInUser.name,
+              category_id: req.params.id,
+              age: fields.age,
+              height: fields.height,
+              weight: fields.weight,
+              gender: fields.gender,
+              bp: fields.bp,
+              blood_type: fields.blood_type,
+              deceased: fields.deceased,
+              blood_sugar: fields.blood_sugar,
+              hepatitis: fields.hepatitis,
+              creatinine: fields.creatinine,
+              cancer: fields.cancer,
+              hiv: fields.hiv,
+              gfr: fields.gfr
+            });
           res.redirect('/profile');
         })();
       });

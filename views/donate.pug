@@ -20,6 +20,28 @@ html
     
   // Responsive navbar
   body
+    style.
+      footer
+      {
+      position:fixed;
+      bottom: 0px;
+      width: 100%;
+      }
+      .btn-group{
+        position:fixed;
+        top:30%;
+        left:30%;
+      }
+      .btn-group a{
+        background-color: #30c986;
+        border-radius: none;
+        border-color: #30c986;
+        opacity: 0.8;
+        margin:10px;
+      }
+      .btn-group a:hover{
+        opacity: 1;
+      }
     nav.navbar.navbar-expand-lg.navbar-dark.bg-header
       .container.px-5
         a.navbar-brand(href='/profile')
@@ -35,7 +57,7 @@ html
             
             li.nav-item
               a.nav-link(href='/logout') Logout
-              
+
     .Container 
       .btn-group.btn-group-justified
         a.btn.btn-primary(href='donate/heart') Heart
