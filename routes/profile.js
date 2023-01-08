@@ -15,9 +15,10 @@ router.get('/', checkAuthenticated, (req, res) => {
   (async () => {
     try {
       let loggedInUser = await req.user;
-      let items = await Items.find({ status: 'true' }).sort({
+      let items = await Items.find({ }).sort({
         _id: -1,
       });
+      
       res.render('profile', { items, user: req.user, loggedInUser });
     } catch (err) {
       console.log(err);

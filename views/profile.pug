@@ -16,10 +16,9 @@ include ./headerSeller
                             span= `${new Date(item.date).getDate()}/${new Date(item.date).getMonth()+1}/${new Date(item.date).getFullYear()}`
                             if item.sold
                                 a( href=`/profile/showbid/${item._id}` style='color:green; float: right;') Sold
-                            else if !item.sold && item.bidded
+                            else if !item.sold
                                 span(style='color:red;') Not sold
-                            else if !item.bidded
-                                span(style='color:blue;') In Queue
+                           
     else if showBid 
         .col-md-8(style='margin: auto; margin-top: 20px')
             .itemShow
@@ -44,7 +43,6 @@ include ./headerSeller
             .col-md-4(style='margin: auto; background-color:#f3f3f3c7; box-shadow: 0px 0px 5px 2px #30c98638; ')
                 p Liver INFO
                 h6(style='text-align: center; margin-top: 10px; color:#30C986; border-bottom:2px solid #30c986;' )  #{loggedInUser.fullname} 
-                
                 form(method='post' action='/profile/additem' enctype="multipart/form-data" style='background-color: white; padding: 10px;')
                 .form-group
                 p Age

@@ -11,21 +11,7 @@ body
                 .col-12
                     #app
                         template
-                            .slider-container
-                                span.leftArrow(v-show='leftArrow' @click='previous()') &lt;
-                                .slider
-                                    .images(@mousedown='mouseDown($event)' @mousemove='mouseMove($event)' @mouseup='mouseUp($event)' @touchstart="mouseDown($event, 'touched')" @touchmove="mouseMove($event, 'touched')" @touchend='mouseUp($event)')
-                                        //- - let images = currentItem.images.split(',');
-                                        //- - let i = 0;
-                                        //- while i< images.length
-                                        //-     img(src=`/uploads/${images[i]}` alt='Image')
-                                        //-     - i++;
-                                    
-                                    img.pause(v-if='autoPlayed' @click='pause()' img='' src='https://i.ibb.co/ggMqJsr/pause.png' alt='pause' title='pause')
-                                    img.autoplay(v-if='!autoPlayed' @click='autoPlay()' img='' src='https://i.ibb.co/ZH97nX0/play.png' alt='play' title='play')
-                                span.rightArrow(v-show='rightArrow' @click='next()') &gt;
-                                .circle
-                                    // circle buttons added here by javascript dynamically
+                            
             .row
                 .col-md-6
                     .info

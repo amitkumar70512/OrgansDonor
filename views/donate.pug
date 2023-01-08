@@ -35,6 +35,7 @@ html
             
             li.nav-item
               a.nav-link(href='/logout') Logout
+              
     .Container 
       .btn-group.btn-group-justified
         a.btn.btn-primary(href='donate/heart') Heart
@@ -42,120 +43,7 @@ html
         a.btn.btn-primary(href='donate/lung') Lung
         a.btn.btn-primary(href='donate/kidney') Kidney
 
-
-   
-      .row
-        .col-md-12(style='position: relative; top: 10px; margin: auto; z-index: 100;')
-            h3(style='text-align: center; margin-top: 10px; color:#30C986 border-bottom:2px solid #30c986 ' )  #{loggedInUser.fullname} 
-            
-            .form-group
-              p Age
-              input.form-control(type='number', name='age', required='required')
-            .form-group
-              p Height(cm)
-              input.form-control(type='number', name='height', required='required')
-            .form-group
-              p Weight(kg)
-              input.form-control(type='number', name='weight', required='required')
-            .form-group
-              select.form-control(name='gender', required='required')
-                option(value='') Gender:
-                option(value='Female') Female
-                option(value='Male') Male
-            .form-group
-              p Blood type
-              input.form-control(type='text', name='bt', required='required')
-            .form-group
-              p BP level
-              select.form-control(name='BP', required='required')
-                option(value='High') high
-                option(value='Low') Low
-                option(value='normal') normal
-            .form-group
-              p Organs to Donate
-              select#organ.form-control(name='organ', onchange='GetSelectedTextValue(this)' required='required')
-                option(value='') Choose:
-                option(value='lung') Lung
-                option(value='heart') Heart
-                option(value='kidney') Kidney
-                option(value='liver') Liver
-
-            .form-group
-              p Deceased
-              select.form-control(name='deceased', required='required')
-                option(value='') Deceased:
-                option(value='Yes') Yes
-                option(value='No') No
-
-            //- #lung(style='display:none')
-            //-   h1 LUNG INFO
-            //-   .form-group
-            //-     p No. of lungs
-            //-     input.form-control(type='number', min='1', max='2', name='nol', required='required')
-            //-   .form-group
-            //-     p Smoking years
-            //-     input.form-control(type='number', name='smy', required='required')
-            //-   .form-group
-            //-     p History of pulminory disease
-            //-     input.form-control(type='boolean', name='pd', required='required')
-            //-   .form-group
-            //-     p Pulmonary edema
-            //-     input.form-control(type='boolean', name='edema', required='required')
-            //-   .form-group
-            //-     p Sepsis
-            //-     input.form-control(type='boolean', name='sepsis', required='required')
-            //-   .form-group
-            //-     p Lung trauma
-            //-     input.form-control(type='boolean', name='lung_trauma', required='required')
-
-            //- br
-            #heart
-              h1 HEART INFO
-              .form-group
-                p History of heart disease
-                input.form-control(type='boolean', name='heart_disease', required='required')
-              .form-group
-                p Obesity
-                input.form-control(type='boolean', name='obesity', required='required')
-              .form-group
-                p Diabetes
-                input.form-control(type='boolean', name='diabetes', required='required')
-              .form-group
-                p Heart abnormalities
-                input.form-control(type='boolean', name='abnormal', required='required')
-              .form-group
-                select.form-control(name='inotropes', required='required')
-                  option(value='') Inotropes
-                  option(value='High') positive
-                  option(value='Low') negative
-                  option(value='normal') na
-            br
-            //- #liver
-            //-   h1 LIVER INFO
-              .form-group
-                select.form-control(name='Blood_sugar', required='required')
-                  option(value='') Blood sugar:
-                  option(value='High') high
-                  option(value='Low') Low
-                  option(value='normal') normal
-              .form-group
-                p Hepatitis
-                input.form-control(type='boolean', name='hepatitis', required='required')
-              .form-group
-                p Cancers
-                input.form-control(type='boolean', name='cancers', required='required')
-              .form-group
-                p HIV
-                input.form-control(type='boolean', name='hiv', required='required')
-              .form-group
-                p Creatinine
-                input.form-control(type='number', name='creatinine', required='required')
-              .form-group
-                p GFRs
-                input.form-control(type='number', name='gfr', required='required')
-            .form-group
-              input.btn.btn-primary.form-control(type='submit', value='Submit')
-    // Footer
+    
     footer.py-3.bg-header
       .container.px-5
         p.m-0.text-center.text-white Copyright &copy; OrgansDonor 2023
